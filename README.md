@@ -4,7 +4,7 @@ Completion and Documentation of Splunk BOTS and Other Splunk based Challenges
 # Boss of The Soc Version 1
 
 ## Scenario 1 Background:
-I am Alice a recent new hire for the Security Operations Center of Wayne Entepises and I have just received my first task. Wayne enteprises received a memo from Gotham City Police Department (GCPD). Apparently GCPD has found evidence online (http://pastebin.com/Gw6dWjS9) that the website www.imreallynotbatman.com hosted on Wayne Enterprises' IP address space has been compromised. The group has multiple objectives... but a key aspect of their modus operandi is to deface websites in order to embarrass their victim. Lucius has asked Alice to determine if www.imreallynotbatman.com. (the personal blog of Wayne Corporations CEO) was really compromised.
+I am Alice a recent new hire for the Security Operations Center of Wayne Corporations and I have just received my first task. Wayne Corporations received a memo from Gotham City Police Department (GCPD). Apparently GCPD has found evidence online (http://pastebin.com/Gw6dWjS9) that the website www.imreallynotbatman.com hosted on Wayne Enterprises' IP address space has been compromised. The group has multiple objectives... but a key aspect of their modus operandi is to deface websites in order to embarrass their victim. Lucius has asked Alice to determine if www.imreallynotbatman.com. (the personal blog of Wayne Corporations CEO) was really compromised.
 
 ## Resources to Use
 ` Splunk server: ` https://gettingstarted.splunk.show  
