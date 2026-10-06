@@ -21,7 +21,7 @@ I am Alice a recent new hire for the Security Operations Center of Wayne Corpora
 
 ## Questions 
 ### Question 101: What is the likely IPv4 address of someone from the Po1s0n1vy group scanning imreallynotbatman.com for web application vulnerabilities?
-1. First I ran the following query to get into the index of where the dtat for the simualtion was created and then the source was HTTP as it was a website defacement.
+1. First I ran the following query to get into the index of where the data for the simualtion was created and then the source was HTTP as it was a website defacement.
    ```
    index=botsv1 sourcetype="stream:http"
    ```
