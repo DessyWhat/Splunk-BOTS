@@ -21,8 +21,36 @@ I am Alice a recent new hire for the Security Operations Center of Wayne Entepis
 
 ## Questions 
 ### Question 101: What is the likely IPv4 address of someone from the Po1s0n1vy group scanning imreallynotbatman.com for web application vulnerabilities?
+1. First I ran the following query to get into the index of where the dtat for the simualtion was created and then the source was HTTP as it was a website defacement.
+   ```
+   index=botsv1 sourcetype="stream:http"
+   ```
+2. I then checked out the top 10 most popular IP's and the IP 40.80.148.42 was at the top of the list.
+   <img width="1910" height="918" alt="image" src="https://github.com/user-attachments/assets/1158c7bd-0569-4dea-a9ae-c913db7a6ad0" />
+
+3. To verify I then created query to check out a specific entry from the source IP that shows in the headers its from a web vulnerability scanner from Acunetix which is the next question.
+ ```
+index=botsv1 sourcetype="stream:http" src_ip="40.80.148.42"
+```
+   <img width="1903" height="882" alt="image" src="https://github.com/user-attachments/assets/a9b32450-27c4-438f-bc36-2941db69433f" />
+
+
 ### Question 102: What company created the web vulnerability scanner used by Po1s0n1vy? Type the company name.
+ In the Previous question i ran the following query to verify the IP found was used for scanning purposes and the scanner was the free version of the Acunetix Web Vulnerability Scanner
+```
+index=botsv1 sourcetype="stream:http" src_ip="40.80.148.42"
+```
+<img width="1903" height="882" alt="image" src="https://github.com/user-attachments/assets/a9b32450-27c4-438f-bc36-2941db69433f" />  
+
 ### Question 103: What content management system is imreallynotbatman.com likely using?
-### Question 104: What is the name of the file that defaced the imreallynotbatman.com website? Please submit only the name of the file with extension?
-### Question 105: This attack used dynamic DNS to resolve to the malicious IP. What fully qualified domain name (FQDN) is associated with this attack?
+With the previous query if we look at the headers we will see the vulnerabilty scanner being used is from Acunetix.
+```
+index=botsv1 sourcetype="stream:http" src_ip="40.80.148.42"
+```
+<img width="1903" height="882" alt="image" src="https://github.com/user-attachments/assets/a9b32450-27c4-438f-bc36-2941db69433f" />  
+
+### Question 104: What is the name of the file that defaced the imreallynotbatman.com website? Please submit only the name of the file with extension?  
+
+### Question 105: This attack used dynamic DNS to resolve to the malicious IP. What fully qualified domain name (FQDN) is associated with this attack?  
+
 
