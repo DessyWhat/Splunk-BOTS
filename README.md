@@ -72,6 +72,52 @@ index="botsv1" sourcetype="stream:http" http_method=POST dest="192.168.250.70"
 ```
 <img width="1907" height="873" alt="image" src="https://github.com/user-attachments/assets/783cd3eb-0839-42f6-9b91-e99353bfcfcd" />  
 
+### Question 109: What is the name of the executable uploaded by Po1s0n1vy? 
+1. Ran the query to search the Fortinet Index for an exe downloaded in the network.
+ ```
+index=botsv1 sourcetype="fgt_utm" srcip=40.80.148.42 *.exe
+```
+3. Found the exe "3791.exe" downloaded from the srcip 40.80.148.42
+<img width="1907" height="919" alt="image" src="https://github.com/user-attachments/assets/bc3faea1-e5eb-47e6-82b5-1009aee0500e" />
+
+### Question 110: 
+1.Search the file being run via this query to find the cmd line running the malware exe.
+```
+index="botsv1" sourcetype="xmlwineventlog:microsoft-windows-sysmon/operational" "3791.exe" CommandLine-"3791.exe"
+```
+<img width="1903" height="914" alt="image" src="https://github.com/user-attachments/assets/01013df0-c3b2-4fb6-a1e6-f1874267b92b" />  
+
+### Question 111: GCPD reported that common TTPs (Tactics, Techniques, Procedures) for the Po1s0n1vy APT group, if initial compromise fails, is to send a spear phishing email with custom malware attached to their intended target. This malware is usually connected to Po1s0n1vys initial attack infrastructure. Using research techniques, provide the SHA256 hash of this malware.
+1. You search up the IP 23.22.63.114 and search it on VirusTotal to see what other files are associated with it and their hashes.
+<img width="1916" height="923" alt="image" src="https://github.com/user-attachments/assets/ff83c5ac-8b9b-410a-a555-238f22b9c6af" />
+
+### Question 112: What special hex code is associated with the customized malware discussed in question 111?
+Hex code is found in community notes of file in VirusTotal
+<img width="1916" height="909" alt="image" src="https://github.com/user-attachments/assets/f32ef53d-a46a-478f-9a32-3eb60fa5fecc" />  
+
+### Question 114: What was the first brute force password used?
+1. Ran the query below to get everytime the IP tried to login to the web server and then went to the first event created.
+```
+index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" src_ip="23.22.63.114" http_method=POST uri=/joomla/Administrator/index.php
+```
+<img width="1917" height="963" alt="image" src="https://github.com/user-attachments/assets/ac0ab167-22f5-4e9d-90e2-ef7ac46a1686" />  
+
+### Question 115: One of the passwords in the brute force attack is James Brodsky's favorite Coldplay song. We are looking for a six character word on this one. Which is it?
+Used AI to create a regex expression to extract 6 letter words to add to the below query to find 6 character passwords then I cross-examined with coldplay songs and the found song named yellow.
+```
+index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" src_ip="23.22.63.114" http_method=POST uri=/joomla/Administrator/index.php | rex field=form_data "passwd=(?<extracted_password>[A-Za-z]{6})(?:\b|&|\s|$)"
+| where isnotnull(extracted_password)
+| table _time, extracted_password
+```
+<img width="1909" height="925" alt="image" src="https://github.com/user-attachments/assets/9725bad0-dccd-486c-bf79-a029a7795192" />  
+
+
+
+
+
+
+
+
 
 
 
