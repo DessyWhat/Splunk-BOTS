@@ -137,10 +137,15 @@ index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST fo
 | transaction string
 | table duration
 ```
-
+<img width="1917" height="831" alt="image" src="https://github.com/user-attachments/assets/e5ac81d6-3207-4841-8d55-13069bb1b223" />
 
 ### Question 119: How many unique passwords were attempted in the brute force attempt? 
 We can try the first query where all the passwords where put as a string and see how many events there were which was 412.
+```
+index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" src_ip="23.22.63.114" http_method=POST uri=/joomla/Administrator/index.php
+```
+
+<img width="1917" height="963" alt="image" src="https://github.com/user-attachments/assets/ac0ab167-22f5-4e9d-90e2-ef7ac46a1686" />  
 
 
 
