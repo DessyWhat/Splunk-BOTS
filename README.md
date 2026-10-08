@@ -111,8 +111,36 @@ index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" src_ip="23.22.63.11
 ```
 <img width="1909" height="925" alt="image" src="https://github.com/user-attachments/assets/9725bad0-dccd-486c-bf79-a029a7795192" />  
 
+### Question 116: What was the correct password for admin access to the content management system running "imreallynotbatman.com"?
+1. Using this query I found all the authentication events for the web server and looked over the most recent ones to find the password that got them in.
+```
+index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" src_ip="23.22.63.114" http_method=POST uri=/joomla/Administrator/index.php
+```
+<img width="1917" height="915" alt="image" src="https://github.com/user-attachments/assets/e0a7e744-2be2-4e94-be95-0de7c5ee8b96" />  
+
+### Question 117: What was the average password length used in the password brute forcing attempt?
+Ran the updated query from Question 116 to query the average length of the passwords.
+
+```
+index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" src_ip="23.22.63.114" http_method=POST uri=/joomla/Administrator/index.php
+| rex field=form_data "passwd=(?<string>\w+)"
+| eval stringlength=len(passwd)
+| stats avg(stringlength) as average_length
+```
+<img width="1917" height="915" alt="image" src="https://github.com/chan2git/splunk-bots/blob/main/botsv1/images/ss25.png" />
+
+### Question 118: How many seconds elapsed between the time the brute force password scan identified the correct password and the compromised login? (Round to 2 decimal places)
+I used the following query to see the difference between the first use and second use of the password of the web server which is batman.
+```
+index=botsv1 sourcetype=stream:http dest_ip="192.168.250.70" http_method=POST form_data=*passwd*batman*
+| rex field=form_data "passwd=(?<string>\w+)"
+| transaction string
+| table duration
+```
 
 
+### Question 119: How many unique passwords were attempted in the brute force attempt? 
+We can try the first query where all the passwords where put as a string and see how many events there were which was 412.
 
 
 
