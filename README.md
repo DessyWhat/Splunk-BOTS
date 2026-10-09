@@ -152,13 +152,20 @@ After the excitement of yesterday, Alice has started to settle into her new job.
 
 Alice has seen this before... ransomware. After a quick conversation with Bob, Alice determines that Bob found a USB drive in the parking lot earlier in the day, plugged it into his desktop, and opened up a word document on the USB drive called "Miranda_Tate_unveiled.dotm". With a resigned sigh she begins to dig into the problem...
 
-## Question 200: What was the most likely IPv4 address of we8105desk on 24AUG2016?
+### Question 200: What was the most likely IPv4 address of we8105desk on 24AUG2016?
 I ran this query to see all the source IP's associated with the host we8105desk
 ```
 index="botsv1" host=we8105desk
 ```
 <img width="1906" height="914" alt="image" src="https://github.com/user-attachments/assets/cd30d0bf-0341-4266-a333-520a5e3d2282" />  
 
+
+### Question 201: Amongst the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times? Submit ONLY the signature ID value as the answer.
+With the query below I found the amount of times suricata alerted for the ransomware "Cerber" and there was  events related to it. One of them was the only unique one that was alerted the least.
+```
+index="botsv1" source="/var/log/suricata/eve.json" "cerber"
+```
+<img width="1909" height="912" alt="image" src="https://github.com/user-attachments/assets/51235181-97b0-4e5d-b737-0556b4e38c13" />  
 
 
 
