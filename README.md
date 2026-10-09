@@ -167,7 +167,7 @@ index="botsv1" source="/var/log/suricata/eve.json" "cerber"
 ```
 <img width="1909" height="912" alt="image" src="https://github.com/user-attachments/assets/51235181-97b0-4e5d-b737-0556b4e38c13" />  
 
-
+### Question 202: 
 
 
 
