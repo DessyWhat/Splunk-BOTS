@@ -167,9 +167,15 @@ index="botsv1" source="/var/log/suricata/eve.json" "cerber"
 ```
 <img width="1909" height="912" alt="image" src="https://github.com/user-attachments/assets/51235181-97b0-4e5d-b737-0556b4e38c13" />  
 
-### Question 202: 
+### Question 202: What fully qualified domain name (FQDN) does the Cerber ransomware attempt to direct the user to at the end of its encryption phase?
+I use the following query to find all the FQDN that are queried that are not from known sources as micrsoft or arpa.
+```
+index=botsv1 sourcetype="stream:dns" src_ip="192.168.250.100" NOT query=*.arpa AND NOT query=*.microsoft.com AND NOT query=*.msn.com AND NOT query=*.info AND NOT query=*.local AND NOT queries=*.windows.com AND queries=*.*
+| table _time, src_ip, dest_ip, queries
+```
+<img width="1862" height="1016" alt="image" src="https://github.com/user-attachments/assets/6fe016fb-d931-468c-a950-f980a99d1a51" />  
 
-
+### Question 203:
 
 
 
