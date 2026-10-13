@@ -182,6 +182,11 @@ index="botsv1" sourcetype="stream:http" site!="*.live.com" AND site!="*.joomla.o
 ```
 <img width="1913" height="877" alt="image" src="https://github.com/user-attachments/assets/841e1b1e-bd5c-49b9-804d-7b37d8263886" />  
 
+### Question 204: During the initial Cerber infection a VB script is run. The entire script from this execution, pre-pended by the name of the launching .exe, can be found in a field in Splunk. What is the length of the value of this field?
+
+### 205: What is the name of the USB key inserted by Bob Smith?
+
+
 
 
 
