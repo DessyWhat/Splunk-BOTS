@@ -175,7 +175,13 @@ index=botsv1 sourcetype="stream:dns" src_ip="192.168.250.100" NOT query=*.arpa A
 ```
 <img width="1862" height="1016" alt="image" src="https://github.com/user-attachments/assets/6fe016fb-d931-468c-a950-f980a99d1a51" />  
 
-### Question 203:
+### Question 203: What was the first suspicious domain visited by we8105desk on 24AUG2016?
+1. I used the following query to create a table of the sites visited and their IP. I removed common websites from the events such as Windows Updates and Microsoft Bing.
+```
+index="botsv1" sourcetype="stream:http" site!="*.live.com" AND site!="*.joomla.org" AND site!="*.msn.com" AND site!="*.windowsupdate.com" AND site!="*.microsoft.com" | table c_ip, site,
+```
+<img width="1913" height="877" alt="image" src="https://github.com/user-attachments/assets/841e1b1e-bd5c-49b9-804d-7b37d8263886" />  
+
 
 
 
